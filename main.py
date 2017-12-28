@@ -26,7 +26,7 @@ def signup():
     email_error =''
 
     #if username == '' or ' ' in username or len(username) > 20 or len(username) <3:
-    if not re.fullmatch('\S{3,20}', username):
+    if not re.fullmatch('\S{3,20}', username): # Used regular expression to validate the input
         name_error = "That is not a valid username!"
         
     if password == '' or ' ' in password or len(password) > 20 or len(password) <3:
