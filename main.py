@@ -1,4 +1,6 @@
 from flask import Flask, render_template, request, redirect
+import re
+
 
 
 app = Flask(__name__)
@@ -23,7 +25,8 @@ def signup():
     verify_error =''
     email_error =''
 
-    if username == '' or ' ' in username or len(username) > 20 or len(username) <3:
+    #if username == '' or ' ' in username or len(username) > 20 or len(username) <3:
+    if not re.fullmatch('\S{3,20}', username):
         name_error = "That is not a valid username!"
         
     if password == '' or ' ' in password or len(password) > 20 or len(password) <3:
